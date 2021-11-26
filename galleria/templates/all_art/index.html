@@ -1,5 +1,10 @@
-{%extends 'all-art/base.html'%}
+{%extends 'all_art/base.html'%}
 
 {% block content %}
 {{block.super}}
+<!-- loop through all the images -->
+{% for photo in Picture %}
+<h2>{{photo.name}}</h2>
+    <img src="{{photo.image.url}}" alt="Coffee">
+{% endfor %}
 {% endblock %}

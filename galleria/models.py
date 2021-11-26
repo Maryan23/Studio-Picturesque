@@ -3,7 +3,7 @@ from cloudinary.models import CloudinaryField
 
 
 # Create your models here.
-class Picture(models.Model):
+class Pictures(models.Model):
     image = CloudinaryField('image')
     name = models.CharField(max_length=50)
     description = models.TextField(max_length=2000)
