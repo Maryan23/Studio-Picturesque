@@ -22,6 +22,7 @@ class Pictures(models.Model):
     description = models.TextField(max_length=2000)
     category = models.ForeignKey('Category',on_delete=models.CASCADE,null=True)
     location = models.ForeignKey('Location',on_delete=models.CASCADE,null=True)
+    pub_date = models.DateTimeField(auto_now_add=True,null=True)
 
 
 
