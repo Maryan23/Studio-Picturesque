@@ -8,10 +8,9 @@
             <!-- loop through all the images -->
             {% for photo in Picture %}
             <div class = "col-md-4">
-                <img class="img-responsive" height='350' width='350' src="{{photo.image.url}}" alt="Coffee">
+                <img class="responsive" src="{{photo.image.url}}" alt="Coffee">
             </div>
             {% endfor %}
-        </div>
     </div>
 </div>
 {% endblock %}
