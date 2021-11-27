@@ -14,7 +14,7 @@ class Pictures(models.Model):
     image = CloudinaryField('image')
     name = models.CharField(max_length=50)
     description = models.TextField(max_length=2000)
-    category = models.ManyToManyField(Category)
+    category = models.ForeignKey('Category',on_delete=models.CASCADE,null=True)
 
     @classmethod
     def search_by_name(cls,search_term):
