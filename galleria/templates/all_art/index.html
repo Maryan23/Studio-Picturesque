@@ -2,9 +2,16 @@
 
 {% block content %}
 {{block.super}}
-<!-- loop through all the images -->
-{% for photo in Picture %}
-<h2>{{photo.name}}</h2>
-    <img src="{{photo.image.url}}" alt="Coffee">
-{% endfor %}
+<div class="container">
+    <h1 class="text-center"><u>Welcome To Our Studio</u></h1>
+    <div class= 'row'>
+            <!-- loop through all the images -->
+            {% for photo in Picture %}
+            <div class = "col-md-4">
+                <img class="img-responsive" height='350' width='350' src="{{photo.image.url}}" alt="Coffee">
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
 {% endblock %}
