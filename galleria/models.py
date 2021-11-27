@@ -7,11 +7,9 @@ class Pictures(models.Model):
     image = CloudinaryField('image')
     name = models.CharField(max_length=50)
     description = models.TextField(max_length=2000)
-#     location = models.ForeignKey(Location)
-#     category = models.ForeignKey(Category)
 
-#     def __str__(self):
-#         return self.name
-
-# class Location(models.Model):
+    @classmethod
+    def search_by_name(cls,search_term):
+        galleria = cls.objects.filter(title__icontains=search_term)
+        return galleria
 
