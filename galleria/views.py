@@ -13,7 +13,7 @@ def search_results(request):
 
     if 'pictures' in request.GET and request.GET["pictures"]:
         search_term = request.GET.get("pictures")
-        searched_pictures = Pictures.search_by_name(search_term)
+        searched_pictures = Pictures.search_by_category(search_term)
         message = f"{search_term}"
 
         return render(request, 'all_art/search.html',{"message":message,"pictures": searched_pictures})

@@ -17,8 +17,8 @@ class Pictures(models.Model):
     category = models.ForeignKey('Category',on_delete=models.CASCADE,null=True)
 
     @classmethod
-    def search_by_name(cls,search_term):
-        galleria = cls.objects.filter(name__icontains=search_term)
+    def search_by_category(cls,search_term):
+        galleria = cls.objects.filter(category__name__icontains=search_term)
         return galleria
     
     @classmethod
