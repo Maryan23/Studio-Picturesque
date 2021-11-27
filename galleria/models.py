@@ -10,6 +10,6 @@ class Pictures(models.Model):
 
     @classmethod
     def search_by_name(cls,search_term):
-        galleria = cls.objects.filter(title__icontains=search_term)
+        galleria = cls.objects.filter(name__icontains=search_term)
         return galleria
 
