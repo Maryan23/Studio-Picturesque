@@ -1,7 +1,8 @@
 h1{
     color:blueviolet
 }
-.responsive{
-    height:auto;
+.img-responsive{
+    height:100%;
     width:100%;
+    padding: 15px;
 }
