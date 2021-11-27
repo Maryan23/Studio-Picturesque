@@ -1,8 +1,15 @@
 from django.db import models
 from cloudinary.models import CloudinaryField
+import datetime as dt
 
 
 # Create your models here.
+class Category(models.Model):
+    name = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.name
+        
 class Pictures(models.Model):
     image = CloudinaryField('image')
     name = models.CharField(max_length=50)
@@ -24,14 +31,12 @@ class Pictures(models.Model):
     def delete_picture(self):
         my_obj = Pictures.objects.get(pk = id(1))
         self.delete(my_obj)
-    def update_picture(self,name,description):
+    def update_picture(self,name,description,category):
         self.name = name,
         self.description = description,
         self.category = category
         self.save()
+    class Meta:
+        ordering = ['name']
 
-class Category(models.Model):
-    name = models.CharField(max_length=50)
 
-    def __str__(self):
-        return self.name
