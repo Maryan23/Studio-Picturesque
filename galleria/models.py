@@ -9,12 +9,21 @@ class Category(models.Model):
 
     def __str__(self):
         return self.name
+
+class Location(models.Model):
+    loc = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.loc
         
 class Pictures(models.Model):
     image = CloudinaryField('image')
     name = models.CharField(max_length=50)
     description = models.TextField(max_length=2000)
     category = models.ForeignKey('Category',on_delete=models.CASCADE,null=True)
+    location = models.ForeignKey('Location',on_delete=models.CASCADE,null=True)
+
+
 
     @classmethod
     def search_by_category(cls,search_term):
