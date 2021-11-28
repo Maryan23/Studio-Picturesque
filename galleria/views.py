@@ -6,8 +6,9 @@ from django.core.exceptions import ObjectDoesNotExist
 
 # Create your views here.
 def index(request):
-    Picture = Pictures.objects.all().order_by('-id')
-    return render(request, 'all_art/index.html',{'Picture':Picture})
+    Picture = Pictures.objects.all().order_by('id')
+    location = Location.objects.all()
+    return render(request, 'all_art/index.html',{'Picture':Picture,'location':location})
 
 def search_results(request):
 
@@ -29,11 +30,7 @@ def pictures(request,pictures_id):
         raise Http404()
     return render(request,"all_art/pictures.html", {"pictures":pictures})
 
-def location(request,location_id):
-    location = Location.objects.all()
-    # pictures = Pictures.objects.get(id=location_id)
-    # loc = Location.objects.get(id=location_id)
-    return render (request,'all_art/navbar.html',{'location': location})
+
 
 
 

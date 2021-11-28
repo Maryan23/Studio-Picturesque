@@ -19,3 +19,7 @@ h1{
 body{
     background-color:lightgrey;
 }
+#button{
+    display:inlin;
+    margin: 5px;
+  }

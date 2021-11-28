@@ -30,6 +30,11 @@ class Pictures(models.Model):
     def search_by_category(cls,search_term):
         galleria = cls.objects.filter(category__name__icontains=search_term)
         return galleria
+
+    @classmethod
+    def filter_by_location(cls, location):
+        pictures = Pictures.objects.filter(location__name=location)
+        return pictures
     
     @classmethod
     def get_all_pictures(cls):
