@@ -1,7 +1,7 @@
 from django.shortcuts import render
-from django.http import HttpResponse,Http404
+from django.http import Http404
 import datetime as dt
-from .models import Pictures,Category,Location
+from .models import Pictures,Location
 from django.core.exceptions import ObjectDoesNotExist
 
 # Create your views here.

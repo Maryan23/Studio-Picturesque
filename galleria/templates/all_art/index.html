@@ -11,15 +11,15 @@
         {% endfor %}
 </div>
 <div class="container mt-5">
-    <h1 class="text-center">Welcome To Our Studio</h1><br>
+    <h3 class="text-center"><i>~A Picture A Day Keeps The Memories Fresh~</i></h3><br>
+    <p id="me"class="text-center"><i>Mwikali</i></p>
     <div class="row p-4">
         {% for photo in Picture%}
-        <div class = "col-md-4" data-toggle ="modal" data-target="#showPictureModal">
+        <div class = "col-md-4" data-toggle ="modal" data-target="#showPictureModal{{photo.id}}">
             <img src="{{photo.image.url}}" alt="" class="img-responsive">
-            <h5>{{photo.name}}</h5>
         </div>
         <!-- Modal -->
-<div class="modal fade" id="showPictureModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal fade" id="showPictureModal{{photo.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -30,20 +30,23 @@
         </div>
         <div class="modal-body">
           <img src="{{photo.image.url}}" class = "img-responsive"alt="{{photo.name}}">
-          <p class="text-centre">{{photo.description}}</p>
-          <div class="col-md-4">
-              <p>{{photo.category}}</p>
-          </div>
-          <div class="col-md-4">
-              <p>{{photo.location}}</p>
-          </div>
-          <div class="col-md-4">
-              <p>{{photo.pub_date}}</p>
+          <p class="text-centre">About:{{photo.description}}</p><hr>
+          <div class="row">
+            <div class="col-md-4">
+                <p>Category:{{photo.category}}</p>
+            </div>
+            <div class="col-md-4">
+                <p>Loc:{{photo.location}}</p>
+            </div>
+            <div class="col-md-4">
+                <p>Date Uploaded:{{photo.pub_date}}</p>
+            </div>
           </div>
         </div>
         <div class="modal-footer">
+            <p>Double click to copy this link!</p>
             <input class="form-control" type="text" value="{{photo.image.url}}" id="{{photo.id}}.url">
-            <button class="btn btn-outline-success btn-sm" onclick="copypath('{{photo.id}}.url')">Copy</button>
+            
         </div>
       </div>
     </div>
