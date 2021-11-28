@@ -1,14 +1,15 @@
 from django.shortcuts import render
 from django.http import Http404
 import datetime as dt
-from .models import Pictures,Location
+from .models import Pictures,Location,Category
 from django.core.exceptions import ObjectDoesNotExist
 
 # Create your views here.
 def index(request):
-    Picture = Pictures.objects.all().order_by('id')
+    Picture = Pictures.objects.all().order_by('-id')
     location = Location.objects.all()
-    return render(request, 'all_art/index.html',{'Picture':Picture,'location':location})
+    category = Category.objects.all()
+    return render(request, 'all_art/index.html',{'Picture':Picture,'location':location,'category':category})
 
 def search_results(request):
 

@@ -2,13 +2,23 @@
 
 {% block content %}
 {{block.super}}
-<div class="container">
-        <h3>Locations</h3>
+<div class="top">
+    <div class="container"id="loc">
+        <h3 id="loc">Locations:</h3>
         {% for loc in location %}
         <div class="row">
-            <button id ="button" class = "btn btn-warning">{{ loc.loc }}</button>
+            <a class="loc" href="/?location={{loc.id}}"><button id ="button" class = "btn btn-warning">{{ loc.loc }}</button></a>
         </div>
         {% endfor %}
+</div>
+<div class="container" id="cat">
+    <h3 class="cat">Categories:</h3>
+    {% for cat in category %}
+    <div class="row">
+        <a class="cat" href="/?category={{cat.id}}"><button id ="button" class = "btn btn-warning">{{ cat.name }}</button></a>
+    </div>
+    {% endfor %}
+</div>
 </div>
 <div class="container mt-5">
     <h3 class="text-center"><i>~A Picture A Day Keeps The Memories Fresh~</i></h3><br>
@@ -54,6 +64,9 @@
   {% endfor %}
     </div>
 
+</div>
+<div class="footer">
+    <p class="text-center">Copyright:2021 Studio Picturesque ~<a href="https://github.com/Maryan23">Mwikali</a>~</p>
 </div>
 {% endblock %}
 

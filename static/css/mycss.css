@@ -1,5 +1,5 @@
 h1{
-    color:blueviolet;
+    color:black;
     font-family: 'Dancing Script', cursive;
 
 }
@@ -29,4 +29,31 @@ body{
   }
 #me{
     color:blueviolet
+}
+#cat{
+    display: flex;
+    align-items: flex-start;
+    margin:15px;
+}
+.cat{
+    margin-left: 30px;
+    font-family: 'Dancing Script', cursive;
+    color:blueviolet
+
+}
+#loc{
+    display:flex;
+    align-items: flex-start;
+    margin: 10px;
+    font-family: 'Dancing Script', cursive;
+    color:blueviolet
+
+}
+.loc{
+    margin-left: 30px;
+    
+}
+.footer{
+    background-color: yellow;
+    color:black;
 }
