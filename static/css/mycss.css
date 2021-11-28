@@ -7,7 +7,15 @@ h1{
 .img-responsive{
     height:100%;
     width:100%;
-    padding:5px;
+    padding:10px;
+    margin-bottom: 10%;
+    border-bottom-left-radius: 10%;
+    border-top-right-radius:10% ;
+    border-bottom: 10%;
     border-style:groove;
     box-shadow: 0 3px 10px rgb(0 0 0 / 1);
+    background-color: ghostwhite;
+}
+body{
+    background-color:lightgrey;
 }
