@@ -10,11 +10,11 @@
 This is a beautiful photo studio that showcases pictures of some of the rarest places on earth.Allows users to search based on category and to view based on locations.
   
 ##  Live Link  
+https://studio-picturesque.herokuapp.com/
  
   
-## Screenshots 
-
-###### Home page
+## Home Page Look
+<img src="/static/Images/Screenshot from 2021-11-30 01-38-32.png">
  
  
 ## User Story  
