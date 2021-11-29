@@ -15,10 +15,10 @@ import os
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
-import cloudinary_storage
 import django_heroku
 import dj_database_url
 from decouple import config,Csv
+import cloudinary_storage
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -49,7 +49,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'galleria.apps.GalleriaConfig',
     'cloudinary',
-    'cloudinary_storage',
 ]
 
 MIDDLEWARE = [
@@ -90,9 +89,9 @@ WSGI_APPLICATION = 'Picturesque.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': '',
-        'USER': '',
-        'PASSWORD':'',
+        'NAME': config('NAME'),
+        'USER': config('USER'),
+        'PASSWORD':config('PASSWORD'),
         'HOST':''
     }
 }
@@ -145,34 +144,22 @@ DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 # Configure Django App for Heroku.
 django_heroku.settings(locals())
 
-# configuring the location for media
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-DATABASES = {
-    'default': dj_database_url.config(
-        default=config('DATABASE_URL')
-    )
-}
-
-db_from_env = dj_database_url.config(conn_max_age=500)
-DATABASES['default'].update(db_from_env)
-
-ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 #Configuring cloudinary
-cloudinary.config( 
-  cloud_name = 'maryann',
-  api_key = '277915962245612',
-  api_secret = 'WE5W32SCq7AAokLBwMDNu9PCxA4',
-  secure = True
+
+cloudinary.config(
+    cloud_name =config('CLOUD_NAME'),
+    api_key=config('CLOUD_API_KEY'), 
+    api_secret=config('API_SECRET'),
+    secure = config('SECURE'),
 )
 CLOUDINARY_STORAGE = {
-    'CLOUD_NAME':  'maryann',
-    'API_KEY':'277915962245612' ,
-    'API_SECRET': 'WE5W32SCq7AAokLBwMDNu9PCxA4',
+    'CLOUD_NAME': 'CLOUD_NAME',
+    'API_KEY': 'CLOUD_API_KEY',
+    'API_SECRET': 'API_SECRET',
+    'SECURE':'SECURE'
 }
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
