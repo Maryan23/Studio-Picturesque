@@ -33,7 +33,32 @@ class LocationTestClass(TestCase):
         update = Location.objects.get(loc = "bot")
         self.assertTrue(update.loc, 'bot')
 
+class CategoryTestClass(TestCase):
+    def setUp(self):
+        self.rare = Category(name="rare")
 
+    def test_save_category(self):
+        self.rare.save_category()
+        categories = Category.objects.all()
+        self.assertTrue(len(categories)>0)
+
+    def test_delete_category(self):
+        self.rare.save_category()
+        categories= Category.objects.all()
+        self.assertEqual(len(categories),1)
+        self.rare.delete_category()
+        categories=Category.objects.all()
+        self.assertEqual(len(categories),0)
+
+    def test_update_category(self):
+        self.rare.save_category()
+        self.rare.update_category(self.rare.id,'bot')
+        update = Category.objects.get(name = "bot")
+        self.assertTrue(update.name, 'bot')
+
+    def test_display_categories(self):
+        self.rare.save_category()
+        self.assertEqual(len(Category.display_all_categories()),1)
 
 
 # class PicturesTestClass(TestCase):
