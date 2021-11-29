@@ -24,7 +24,13 @@ class Pictures(models.Model):
     location = models.ForeignKey('Location',on_delete=models.CASCADE,null=True)
     pub_date = models.DateTimeField(auto_now_add=True,null=True)
 
+    def __str__(self):
+        return self.name
 
+    @classmethod
+    def get_all_pictures(cls):
+        pictures = Pictures.objects.all()
+        return pictures
 
     @classmethod
     def search_by_category(cls,search_term):
@@ -35,22 +41,25 @@ class Pictures(models.Model):
     def filter_by_location(cls, location):
         pictures = Pictures.objects.filter(location__name=location)
         return pictures
-    
-    @classmethod
-    def get_all_pictures(cls):
-        pictures = Pictures.objects.all()
-        return pictures
 
     def save_picture(self):
         self.save()
+
     def delete_picture(self):
         my_obj = Pictures.objects.get(pk = id(1))
         self.delete(my_obj)
+
     def update_picture(self,name,description,category):
         self.name = name,
         self.description = description,
         self.category = category
         self.save()
+
+    def get_picture_by_id(cls,id):
+        pic = Pictures.objects.get(id=id)
+        return pic
+
+
     class Meta:
         ordering = ['name']
 
