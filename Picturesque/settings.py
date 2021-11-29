@@ -152,15 +152,15 @@ django_heroku.settings(locals())
 #Configuring cloudinary
 
 cloudinary.config(
-    cloud_name =config('CLOUD_NAME'),
-    api_key=config('CLOUD_API_KEY'), 
-    api_secret=config('API_SECRET'),
-    secure = config('SECURE'),
+    cloud_name ='maryann',
+    api_key='277915962245612', 
+    api_secret='WE5W32SCq7AAokLBwMDNu9PCxA4',
+    secure = True,
 )
 CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': 'CLOUD_NAME',
-    'API_KEY': 'CLOUD_API_KEY',
-    'API_SECRET': 'API_SECRET',
-    'SECURE':'SECURE',
+    'CLOUD_NAME': 'maryann',
+    'API_KEY': '277915962245612',
+    'API_SECRET': 'WE5W32SCq7AAokLBwMDNu9PCxA4',
+    'SECURE':'True',
 }
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
