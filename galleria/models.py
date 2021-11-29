@@ -82,10 +82,6 @@ class Pictures(models.Model):
     def save_picture(self):
         self.save()
 
-    def delete_picture(self):
-        my_obj = Pictures.objects.get(pk = id(1))
-        self.delete(my_obj)
-
     def update_picture(self,name,description,category):
         self.name = name,
         self.description = description,
