@@ -34,7 +34,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'galleria.apps.GalleriaConfig',
     'cloudinary',
+    'cloudinary_storage',
 ]
 
 MIDDLEWARE = [
@@ -67,7 +68,7 @@ ROOT_URLCONF = 'Picturesque.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR,"templates")],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -92,7 +93,7 @@ DATABASES = {
         'NAME': config('NAME'),
         'USER': config('USER'),
         'PASSWORD':config('PASSWORD'),
-        'HOST':''
+        'HOST':config('HOST'),
     }
 }
 
@@ -160,6 +161,6 @@ CLOUDINARY_STORAGE = {
     'CLOUD_NAME': 'CLOUD_NAME',
     'API_KEY': 'CLOUD_API_KEY',
     'API_SECRET': 'API_SECRET',
-    'SECURE':'SECURE'
+    'SECURE':'SECURE',
 }
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
