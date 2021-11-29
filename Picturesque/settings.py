@@ -15,6 +15,7 @@ import os
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
+import cloudinary_storage
 import django_heroku
 import dj_database_url
 from decouple import config
@@ -48,6 +49,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'galleria.apps.GalleriaConfig',
     'cloudinary',
+    'cloudinary_storage',
 ]
 
 MIDDLEWARE = [
@@ -141,7 +143,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
-
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # Configure Django App for Heroku.
 django_heroku.settings(locals())
@@ -154,9 +156,13 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #Configuring cloudinary
 cloudinary.config( 
-  cloud_name = config('CD_NAME'),
-  api_key = config('CD_API_KEY'),
-  api_secret = config('CD_API_SECRET'),
+  cloud_name = 'maryann',
+  api_key = '277915962245612',
+  api_secret = 'WE5W32SCq7AAokLBwMDNu9PCxA4',
   secure = True
-
 )
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME':  'maryann',
+    'API_KEY':'277915962245612' ,
+    'API_SECRET': 'WE5W32SCq7AAokLBwMDNu9PCxA4',
+}
