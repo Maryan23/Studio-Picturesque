@@ -89,7 +89,7 @@ WSGI_APPLICATION = 'Picturesque.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql+psycopg2',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': config('NAME'),
         'USER': config('USER'),
         'PASSWORD':config('PASSWORD'),
@@ -152,15 +152,15 @@ django_heroku.settings(locals())
 #Configuring cloudinary
 
 cloudinary.config(
-    cloud_name ='maryann',
-    api_key='277915962245612', 
-    api_secret='WE5W32SCq7AAokLBwMDNu9PCxA4',
+    cloud_name = config('CLOUD_NAME'),
+    api_key=config('API_KEY'), 
+    api_secret=config('API_SECRET'),
     secure = True,
 )
 CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': 'maryann',
-    'API_KEY': '277915962245612',
-    'API_SECRET': 'WE5W32SCq7AAokLBwMDNu9PCxA4',
+    'CLOUD_NAME':config('CLOUD_NAME'),
+    'API_KEY':config('API_KEY'),
+    'API_SECRET':config('API_SECRET'),
     'SECURE':'True',
 }
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
